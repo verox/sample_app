@@ -1,0 +1,8 @@
+= form_for @micropost do |f|
+  = render 'shared/error_messages', object: f.object
+  .field
+    = f.text_area :content
+    .remaining-chars
+      = 140 - (@micropost.content.nil? ? 0 : @micropost.content.length)
+  .actions
+    = f.submit "Submit"
